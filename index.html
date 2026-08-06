@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Niño Farmer Support - Advisory Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation Header -->
+    <header>
+        <div class="logo">🌾 Farmer Companion (El Niño Portal)</div>
+        <nav>
+            <a href="#about">Key Issues</a>
+            <a href="#pest-control">Pest & Chemical Guide</a>
+            <a href="#crops">Suitable Crops</a>
+            <a href="#methods">Management</a>
+            <a href="#contact">Farmer Support</a>
+            <a href="#about us">About Us</a>
+            <a href="#contact">Contact Us & Team</a>
+        </nav>
+        
+        <div class="translate-container">
+            <div id="google_translate_element"></div>
+        </div>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Overcoming El Niño Drought Conditions</h1>
+            <p>Details on high-yield, low-water crops, disease control, and chemical solutions.</p>
+            <a href="#pest-control" class="btn-cta">Chemical Treatment Guide</a>
+        </div>
+    </section>
+
+    <div class="container">
+
+        <!-- El Nino Impact Section -->
+        <section id="about" class="section-block">
+            <h2 class="section-title">Major Challenges Caused by El Niño</h2>
+            <div class="grid-3">
+                <div class="card warning fade-in">
+                    <h3>☀️ Water Shortage</h3>
+                    <p>Delayed monsoons lead to depleted groundwater levels. Water tables in ponds and borewells drop significantly.</p>
+                </div>
+                <div class="card warning fade-in">
+                    <h3>🌱 Pest Outbreaks</h3>
+                    <p>High temperatures increase the incidence of sap-sucking pests and severe crop infestations.</p>
+                </div>
+                <div class="card warning fade-in">
+                    <h3>🌾 Paddy Crop Damage</h3>
+                    <p>Water-intensive crops like rice/paddy face a high risk of drying up and fungal blast attack.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- NEW: Pest, Disease & Chemical Treatment Section -->
+        <section id="pest-control" class="filter-section fade-in">
+            <h2 class="section-title">Common Crop Problems & Chemical Solutions</h2>
+            <p class="filter-subtitle">Recommended chemical controls for prevalent dry-weather crop problems:</p>
+
+            <div class="problem-grid" id="problemGrid">
+                <!-- Pest & Chemical cards dynamically rendered via JS -->
+            </div>
+        </section>
+
+        <!-- Dynamic Crop Recommendation Section -->
+        <section id="crops" class="filter-section fade-in">
+            <h2 class="section-title">Recommended Crops During El Niño</h2>
+            <p class="filter-subtitle">Select a crop category:</p>
+
+            <div class="filter-controls">
+                <button class="filter-btn active" onclick="filterCrops('all')">All Crops</button>
+                <button class="filter-btn" onclick="filterCrops('pulses')">Pulses</button>
+                <button class="filter-btn" onclick="filterCrops('millets')">Millets</button>
+                <button class="filter-btn" onclick="filterCrops('oil')">Oilseeds</button>
+            </div>
+
+            <div class="crop-grid" id="cropGrid">
+                <!-- Crops generated dynamically via JS -->
+            </div>
+        </section>
+
+        <!-- Management Tips -->
+        <section id="methods" class="section-block">
+            <h2 class="section-title">Water Management Practices</h2>
+            <div class="grid-3">
+                <div class="card fade-in">
+                    <h3>💧 Drip Irrigation</h3>
+                    <p>Delivers water directly to the roots, saving up to 50% more water compared to traditional methods.</p>
+                </div>
+                <div class="card fade-in">
+                    <h3>🌾 Mulching</h3>
+                    <p>Covering soil around plant bases with dry straw or plastic sheets prevents moisture evaporation.</p>
+                </div>
+                <div class="card fade-in">
+                    <h3>⏳ Short-Duration Varieties</h3>
+                    <p>Opt for short-duration seed varieties that reach harvest maturity within 90 to 100 days.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Help Form for Farmers -->
+        <section id="contact" class="form-section fade-in">
+            <h2 class="section-title">Free Farmer Advisory Form</h2>
+            <form onsubmit="handleFormSubmit(event)">
+                <div class="form-group">
+                    <label for="farmerName">Farmer Name:</label>
+                    <input type="text" id="farmerName" required placeholder="Enter your full name">
+                </div>
+                <div class="form-group">
+                    <label for="district">District:</label>
+                    <input type="text" id="district" required placeholder="Enter your district name">
+                </div>
+                <div class="form-group">
+                    <label for="waterSource">Water Source Available?:</label>
+                    <select id="waterSource">
+                        <option value="none">No Irrigation (Rainfed only)</option>
+                        <option value="bore">Borewell Available (Limited)</option>
+                        <option value="canal">Canal / Reservoir</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="query">Your Query / Question:</label>
+                    <textarea id="query" rows="4" placeholder="Describe your crop issue or pesticide query..."></textarea>
+                </div>
+                <button type="submit" class="btn-cta full-width">Get Advisory</button>
+            </form>
+        </section>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+<!-- About Us Section with Image Banners -->
+<section id="about-us" class="filter-section fade-in">
+    <h2 class="section-title">About Us</h2>
+    <p class="filter-subtitle">Empowering farmers with smart agricultural solutions during dry weather & El Niño conditions.</p>
+
+    <!-- Top Row: Mission, Vision, Community First -->
+    <div class="grid-3" style="margin-bottom: 30px;">
+        <div class="about-card">
+            <div class="about-img-wrapper">
+                <img src="t.jpeg" alt="Our Mission" class="about-img">
+            </div>
+            <div class="about-card-body">
+                <h3>🎯 Our Mission</h3>
+                <p>To support rural and small-scale farmers by offering timely, accurate, and easy-to-understand advice on crop selection, pest control, and water conservation during critical weather changes.</p>
+            </div>
+        </div>
+
+        <div class="about-card">
+            <div class="about-img-wrapper">
+                <img src="s.jpeg" alt="Our Vision" class="about-img">
+            </div>
+            <div class="about-card-body">
+                <h3>👁️ Our Vision</h3>
+                <p>To build a climate-resilient farming community capable of sustaining high crop yield and income using modern, sustainable, and eco-friendly agricultural practices.</p>
+            </div>
+        </div>
+
+        <div class="about-card">
+            <div class="about-img-wrapper">
+                <img src="p.jpeg" alt="Community First" class="about-img">
+            </div>
+            <div class="about-card-body">
+                <h3>🤝 Community First</h3>
+                <p>Providing 100% free agricultural guidance, chemical safety dosage recommendations, and direct support in local languages through Rythu Bharosa integration.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Row: Sustainable Farming, Pest Guidance, Advisory Support -->
+    <div class="grid-3">
+        <div class="about-card">
+            <div class="about-img-wrapper">
+                <img src="o.jpeg" alt="Sustainable Farming" class="about-img">
+            </div>
+            <div class="about-card-body">
+                <h3>🌱 Sustainable Farming</h3>
+                <p>Promoting low-water millets, pulses, and oilseeds to fight soil degradation and water scarcity.</p>
+            </div>
+        </div>
+
+        <div class="about-card">
+            <div class="about-img-wrapper">
+                <img src="t.jpeg" alt="Expert Pesticide Guidance" class="about-img">
+            </div>
+            <div class="about-card-body">
+                <h3>🧪 Expert Pesticide Guidance</h3>
+                <p>Delivering accurate chemical name suggestions and dosages to stop crop loss from dry-weather pests.</p>
+            </div>
+        </div>
+
+        <div class="about-card">
+            <div class="about-img-wrapper">
+                <img src="u.jpeg" alt="24/7 Advisory Support" class="about-img">
+            </div>
+            <div class="about-card-body">
+                <h3>📞 24/7 Advisory Support</h3>
+                <p>Connecting farmers with agricultural specialists to address urgent field queries free of charge.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- NEW: Farmer Feedback / Testimonials Section -->
+        <section id="feedback" class="filter-section">
+            <h2 class="section-title">Farmer Feedback & Success Stories</h2>
+            <p class="filter-subtitle">See how our advisory and chemical guides have helped farmers save crops during dry spells.</p>
+
+            <div class="grid-3" id="feedback-grid">
+                <!-- Feedback 1 -->
+                <div class="feedback-card">
+                    <div class="quote-icon">“</div>
+                    <p class="feedback-text">"During the drought, my groundnut crop had severe Tikka disease. The chemical guide recommended Mancozeb 75% WP with exact dosage. Saved my yield completely!"</p>
+                    <div class="farmer-profile">
+                        <img src="farm1.jpeg" height=300px width=300px alt="Ramesh Rao" class="farmer-avatar">
+                        <div class="farmer-details">
+                            <h4>Ramesh Rao</h4>
+                            <p class="farmer-location">📍 Anantapur District</p>
+                            <div class="star-rating">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feedback 2 -->
+                <div class="feedback-card">
+                    <div class="quote-icon">“</div>
+                    <p class="feedback-text">"I shifted to Sorghum (Jonnalu) following the crop recommendation tab when groundwater dropped. Required very little water and gave a great harvest!"</p>
+                    <div class="farmer-profile">
+                        <img src="farm3.jpeg" height=300px width=300px  alt="Lakshmi Devi" class="farmer-avatar">
+                        <div class="farmer-details">
+                            <h4>Lakshmi Devi</h4>
+                            <p class="farmer-location">📍 Kurnool District</p>
+                            <div class="star-rating">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feedback 3 -->
+                <div class="feedback-card">
+                    <div class="quote-icon">“</div>
+                    <p class="feedback-text">"Submitted my query on the advisory form regarding Aphids in my pulses. The support team provided direct response within hours. Very useful portal!"</p>
+                    <div class="farmer-profile">
+                        <img src="farm2.jpeg" height=300px width=300px alt="Venkatesh K." class="farmer-avatar">
+                        <div class="farmer-details">
+                            <h4>Venkatesh K.</h4>
+                            <p class="farmer-location">📍 Guntur District</p>
+                            <div class="star-rating">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Optional: Share Your Experience Input Form -->
+            <div class="add-feedback-box">
+                <h3>💬 Share Your Feedback</h3>
+                <form id="feedbackForm">
+                    <div class="grid-2">
+                        <input type="text" id="feedbackName" placeholder="Your Name" required>
+                        <input type="text" id="feedbackLocation" placeholder="Your District / Village" required>
+                    </div>
+                    <textarea id="feedbackComment" rows="3" placeholder="Write your experience or crop success story here..." required></textarea>
+                    <button type="submit" class="hero-btn" style="padding: 10px 24px; font-size: 0.95rem;">Submit Feedback</button>
+                </form>
+            </div>
+        </section>
+<!-- Contact Us / Team Section -->
+<section id="contact-me" class="filter-section fade-in">
+    <h2 class="section-title">Contact Us & Development Team</h2>
+    <p class="filter-subtitle">Get in touch with our team of agricultural specialists and developers.</p>
+
+    <div class="team-grid">
+        <!-- Profile Card 1 -->
+        <div class="profile-card">
+            <div class="avatar-wrapper">
+                <img src="lavanya.jpeg" alt="Lavanya J" class="profile-avatar">
+            </div>
+            <h3>Lavanya S</h3>
+            <p class="designation">Lead Developer | UI/UX Designer | Frontend Specialist</p>
+            <p class="bio">
+                Lavanya is a Computer Science & Engineering student passionate about web development, UI/UX design, and AI-driven agricultural tools. She leads frontend design for the El Niño Farmer Advisory Portal.
+            </p>
+            <div class="tags-container">
+                <span class="tag">HTML5</span>
+                <span class="tag">CSS3</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">UI/UX Design</span>
+                <span class="tag">Responsive Web</span>
+            </div>
+            <div class="contact-info">
+                <p>📧 <strong>Email:</strong> lavanyasada@gmail.com</p>
+                <p>📱 <strong>Phone:</strong> +91 98765 43210</p>
+            </div>
+        </div>
+
+        <!-- Profile Card 2 -->
+        <div class="profile-card">
+            <div class="avatar-wrapper">
+                <img src="pravali.jpeg" alt="pravalikagajingi" class="profile-avatar">
+            </div>
+            <h3>pravalika G</h3>
+            <p class="designation">Frontend Developer | JavaScript Developer</p>
+            <p class="bio">
+                Pradeep is a Eloctronic communication Engineering student passionate about frontend development and AI integration. He enjoys building real-world web applications that support rural farming communities.
+            </p>
+            <div class="tags-container">
+                <span class="tag">HTML5</span>
+                <span class="tag">CSS3</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">Python</span>
+                <span class="tag">css</span>
+            </div>
+            <div class="contact-info">
+                <p>📧 <strong>Email:</strong> pravalikagajingi@gmail.com</p>
+                <p>📱 <strong>Phone:</strong> +91 98765 43211</p>
+            </div>
+        </div>
+
+        <!-- Profile Card 3 -->
+        <div class="profile-card">
+            <div class="avatar-wrapper">
+                <img src="jaya.jpeg" alt="jayanthilukalapu" class="profile-avatar">
+            </div>
+            <h3>Jayanthi L</h3>
+            <p class="designation">Frontend Developer | Documentation Lead</p>
+            <p class="bio">
+                Mithun is a  Artificial Intelligence student with a strong interest in user interface design, software testing, and documentation. He focuses on creating seamless user experiences for farmers.
+            </p>
+            <div class="tags-container">
+                <span class="tag">HTML5</span>
+                <span class="tag">CSS3</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">Git</span>
+                <span class="tag">Testing</span>
+            </div>
+            <div class="contact-info">
+                <p>📧 <strong>Email:</strong> jayanthilukalapu@gmail.com</p>
+                <p>📱 <strong>Phone:</strong> +91 98765 43212</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Footer -->
+    <footer>
+        <p>© 2026 El Niño Farmer Welfare Portal | Free Agricultural Advisory</p>
+        <p>Rythu Bharosa Center Helpline: 155251</p>
+    </footer>

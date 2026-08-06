@@ -1,0 +1,621 @@
+:root {
+    --primary-color: #2e7d32;
+    --secondary-color: #e65100;
+    --bg-light: #f4f6f8;
+    --text-dark: #212121;
+    --danger-color: #c62828;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Full-Screen Dynamic Animated Background */
+body {
+    background: 
+        linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), 
+        url('https://images.unsplash.com/photo-1595974482597-4b8da8879bc5?auto=format&fit=crop&w=1920&q=80') 
+        center center / cover fixed no-repeat;
+    animation: bgPulse 20s ease-in-out infinite alternate;
+    color: var(--text-dark);
+    line-height: 1.6;
+    top: 0px !important;
+    min-height: 100vh;
+}
+
+@keyframes bgPulse {
+    0% { background-size: 100% auto; }
+    100% { background-size: 110% auto; }
+}
+
+header {
+    background-color: rgba(46, 125, 50, 0.95);
+    backdrop-filter: blur(8px);
+    color: white;
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.logo {
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 15px;
+    font-weight: 500;
+}
+
+nav a:hover {
+    color: #a5d6a7;
+}
+
+.hero {
+    background: rgba(0, 0, 0, 0.3);
+    color: white;
+    padding: 80px 20px;
+    text-align: center;
+    backdrop-filter: blur(2px);
+}
+
+.hero h1 {
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+}
+
+.btn-cta {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 12px 28px;
+    border: none;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.btn-cta:hover {
+    background-color: #bf360c;
+    transform: translateY(-3px);
+}
+
+.btn-cta.full-width {
+    width: 100%;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto;
+}
+
+.section-block {
+    margin-bottom: 50px;
+}
+
+.section-title {
+    text-align: center;
+    color: #ffffff;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+    margin-bottom: 25px;
+    font-size: 2.2rem;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(8px);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    border-top: 5px solid var(--primary-color);
+}
+
+.card.warning {
+    border-top-color: var(--secondary-color);
+}
+
+.filter-section {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(8px);
+    padding: 35px;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    margin-bottom: 40px;
+}
+
+.filter-subtitle {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #444;
+}
+
+/* Problem & Chemical Cards Styling */
+.problem-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.problem-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    border-left: 5px solid var(--danger-color);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.problem-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.problem-card h3 {
+    color: var(--danger-color);
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.problem-card .affected-crop {
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+}
+
+.problem-card .chemical-box {
+    background: #e8f5e9;
+    border: 1px solid #c8e6c9;
+    padding: 12px;
+    border-radius: 8px;
+    margin-top: 12px;
+}
+
+.problem-card .chemical-box h4 {
+    color: var(--primary-color);
+    font-size: 0.95rem;
+    margin-bottom: 4px;
+}
+
+.problem-card .chemical-box p {
+    font-size: 0.9rem;
+    color: #1b5e20;
+    font-weight: 600;
+}
+
+.problem-card .dosage {
+    font-size: 0.85rem;
+    color: #555;
+    margin-top: 4px;
+}
+
+/* Filter Controls */
+.filter-controls {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background: #e0e0e0;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.filter-btn.active {
+    background: var(--primary-color);
+    color: white;
+}
+
+/* Crop Card Layout */
+.crop-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+}
+
+.crop-card {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    height: 280px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: flex-end;
+}
+
+.crop-card-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.6s ease;
+}
+
+.crop-card:hover .crop-card-bg {
+    transform: scale(1.15);
+}
+
+.crop-card-content {
+    position: relative;
+    z-index: 2;
+    background: linear-gradient(transparent, rgba(0,0,0,0.9) 45%);
+    color: white;
+    width: 100%;
+    padding: 20px;
+}
+
+.crop-card-content h4 {
+    font-size: 1.3rem;
+    color: #ffeb3b;
+    margin-bottom: 8px;
+}
+
+/* Scroll Fade Animations */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.form-section {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(8px);
+    padding: 35px;
+    border-radius: 16px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.form-group input, 
+.form-group select, 
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+footer {
+    background: rgba(27, 94, 32, 0.95);
+    color: white;
+    text-align: center;
+    padding: 25px;
+    margin-top: 50px;
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+    nav {
+        margin-top: 15px;
+    }
+}
+/* Updated Problem Grid & Image Styling */
+.problem-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.problem-card {
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    border-left: 5px solid var(--danger-color);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.problem-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 22px rgba(0,0,0,0.18);
+}
+
+/* Image Container with Zoom Hover Effect */
+.problem-img-wrapper {
+    width: 100%;
+    height: 160px;
+    overflow: hidden;
+    position: relative;
+}
+
+.problem-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.problem-card:hover .problem-img {
+    transform: scale(1.1);
+}
+
+/* Problem Card Text Padding */
+.problem-card-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.problem-card h3 {
+    color: var(--danger-color);
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.problem-card .affected-crop {
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+}
+
+.problem-card .chemical-box {
+    background: #e8f5e9;
+    border: 1px solid #c8e6c9;
+    padding: 12px;
+    border-radius: 8px;
+    margin-top: auto;
+    padding-top: 12px;
+}
+
+.problem-card .chemical-box h4 {
+    color: var(--primary-color);
+    font-size: 0.95rem;
+    margin-bottom: 4px;
+}
+
+.problem-card .chemical-box p {
+    font-size: 0.9rem;
+    color: #1b5e20;
+    font-weight: 600;
+}
+
+.problem-card .dosage {
+    font-size: 0.85rem;
+    color: #555;
+    margin-top: 4px;
+}
+/* About Us Card Styling with Images */
+.about-card {
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    border-top: 4px solid var(--primary-color);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.about-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 22px rgba(0,0,0,0.18);
+}
+
+.about-img-wrapper {
+    width: 100%;
+    height: 140px;
+    overflow: hidden;
+    position: relative;
+}
+
+.about-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.about-card:hover .about-img {
+    transform: scale(1.1);
+}
+
+.about-card-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.about-card-body h3 {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.about-card-body p {
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+/* Contact / Team Profile Card Styles */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.profile-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 30px 25px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    border-top: 5px solid var(--primary-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.18);
+}
+
+/* Circular Image Styling */
+.avatar-wrapper {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 15px;
+    border: 4px solid var(--primary-color);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.profile-avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-card h3 {
+    font-size: 1.4rem;
+    color: var(--text-dark);
+    margin-bottom: 4px;
+}
+
+.profile-card .designation {
+    font-size: 0.88rem;
+    color: #666;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.profile-card .bio {
+    font-size: 0.92rem;
+    color: #444;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+/* Skill Tags */
+.tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.tag {
+    background-color: #f0f4f1;
+    color: var(--primary-color);
+    border: 1px solid #c8e6c9;
+    font-size: 0.8rem;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-weight: 500;
+}
+
+/* Contact Info Box */
+.contact-info {
+    margin-top: auto;
+    width: 100%;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+    font-size: 0.88rem;
+    color: #333;
+    text-align: left;
+}
+
+.contact-info p {
+    margin-bottom: 5px;
+}
+/* Add Feedback Form Box */
+.add-feedback-box {
+    margin-top: 35px;
+    background: #c6c5cb;
+    padding: 25px;
+    border-radius: 16px;
+    border: 1px solid #a55513;
+}
+
+.add-feedback-box h3 {
+    color: var(--primary-green);
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.add-feedback-box input, .add-feedback-box textarea {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #15aa44;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+}
+
+feedback-card img{
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    display: block;
+    margin: auto;
+    border-radius: 50%;
+}
